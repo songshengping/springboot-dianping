@@ -1,4 +1,4 @@
-package com.song.springbootdianping.Exception;
+package com.song.springbootdianping.exception;
 
 /**
  * @Description TODO

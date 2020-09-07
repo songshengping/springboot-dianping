@@ -1,13 +1,11 @@
 package com.song.springbootdianping.config;
 
 import com.song.springbootdianping.constant.CommonConstant;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
@@ -19,25 +17,30 @@ import java.util.Locale;
  * @Created by Jeremy
  */
 @Configuration
-@EnableAutoConfiguration
-@ComponentScan
-public class Ii8nconfig extends WebMvcConfigurerAdapter {
+public class Ii8nconfig {
+
+    /**
+     * 默认拦截器 其中ParamName表示切换语言的参数名
+     */
+    @Bean
+    public WebMvcConfigurer localeInterceptor() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addInterceptors(InterceptorRegistry registry) {
+                LocaleChangeInterceptor localeInterceptor = new LocaleChangeInterceptor();
+                localeInterceptor.setParamName(CommonConstant.LOCALE);
+                registry.addInterceptor(localeInterceptor);
+            }
+        };
+    }
+
+    /**
+     * 默认解析器 其中locale表示默认语言
+     */
     @Bean
     public LocaleResolver localeResolver(){
-        SessionLocaleResolver slr = new SessionLocaleResolver();
-        slr.setDefaultLocale(Locale.CHINA);
-        return slr;
-    }
-
-    @Bean
-    public LocaleChangeInterceptor localeChangeInterceptor(){
-        LocaleChangeInterceptor lci = new LocaleChangeInterceptor();
-        lci.setParamName(CommonConstant.LOCALE);
-        return lci;
-    }
-
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(localeChangeInterceptor());
+        SessionLocaleResolver localeResolver = new SessionLocaleResolver();
+        localeResolver.setDefaultLocale(Locale.SIMPLIFIED_CHINESE);
+        return localeResolver;
     }
 }

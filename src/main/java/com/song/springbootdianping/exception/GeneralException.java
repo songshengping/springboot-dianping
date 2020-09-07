@@ -1,4 +1,4 @@
-package com.song.springbootdianping.Exception;
+package com.song.springbootdianping.exception;
 
 import com.song.springbootdianping.common.APIErrorCode;
 
