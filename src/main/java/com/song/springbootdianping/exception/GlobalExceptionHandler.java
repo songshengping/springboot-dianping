@@ -61,7 +61,12 @@ public class GlobalExceptionHandler {
         return commonExceptionMessage(ex, APIErrorCode.UNKNOWN_ERROR);
     }
 
-    private APIResponse<String> commonExceptionMessage(BaseExceprion be, APIErrorCode error){
-        return new APIResponse<String>(error, be.getMessage());
+    private APIResponse<String> commonExceptionMessage(BaseExceprion be, APIErrorCode defaultErrorCode){
+        if (be.code == null) {
+            return new APIResponse<String>(defaultErrorCode);
+        } else {
+            return new APIResponse<String>(APIErrorCode.getAPIErrorCodeByCode(be.code));
+        }
+
     }
 }

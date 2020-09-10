@@ -2,6 +2,7 @@ package com.song.springbootdianping.mapstruct;
 
 import com.song.springbootdianping.dto.UserDTO;
 import com.song.springbootdianping.model.User;
+import com.song.springbootdianping.request.UserRegistRequest;
 import org.mapstruct.Mapper;
 import org.mapstruct.NullValueCheckStrategy;
 import org.mapstruct.factory.Mappers;
@@ -13,7 +14,9 @@ import org.mapstruct.factory.Mappers;
  */
 @Mapper(nullValueCheckStrategy= NullValueCheckStrategy.ALWAYS)
 public interface UserMapStruct {
-    UserMapStruct USER_MAPSTRUCT = Mappers.getMapper(UserMapStruct.class);
+    UserMapStruct INSTANCE = Mappers.getMapper(UserMapStruct.class);
 
     UserDTO toDto(User selectByPrimaryKey);
+
+    User toModel(UserRegistRequest requestBody);
 }

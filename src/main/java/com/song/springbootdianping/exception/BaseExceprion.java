@@ -2,6 +2,8 @@ package com.song.springbootdianping.exception;
 
 import com.song.springbootdianping.common.APIErrorCode;
 import com.song.springbootdianping.utils.StringUtil;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.text.MessageFormat;
 
@@ -10,8 +12,10 @@ import java.text.MessageFormat;
  * @Date 2020/9/6 18:09
  * @Created by Jeremy
  */
+@Getter
+@Setter
 public class BaseExceprion extends Exception{
-    public int code;
+    public Integer code;
     public String errorMessage;
     public String placeholder;
     public BaseExceprion(){

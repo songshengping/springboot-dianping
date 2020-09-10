@@ -9,7 +9,6 @@ import lombok.Getter;
  */
 @Getter
 public enum APIErrorCode {
-    NO_OBJECT(10001,"对象不存在"),
 
     AUTH_NO_PERMISSION(20001, "权限不足"),
 
@@ -21,6 +20,12 @@ public enum APIErrorCode {
 
     DB_SQL_ERROR	          		   	(15003, "数据库语句错误"),
 
+    /** 和用户相关错误 10000 */
+    USER_NOT_EXIST_ERROR(10001, "用户不存在"),
+    USER_PHONE_ERROR(10002, "用户电话填写错误"),
+    USER_EMAIL_ERROR(10003, "用户邮箱填写错误"),
+    USER_NAME_EXIST_ERROR(10004, "用户名已存在"),
+
     UNKNOWN_ERROR(99999,"未知错误");
 
     private int errorCode;
@@ -29,5 +34,14 @@ public enum APIErrorCode {
     APIErrorCode(int errorCode, String errorMessage){
         this.errorCode = errorCode;
         this.errorMessage = errorMessage;
+    }
+
+    public static APIErrorCode getAPIErrorCodeByCode(int code){
+        for (APIErrorCode errorCode : APIErrorCode.values()) {
+            if (errorCode.getErrorCode() == code) {
+                return errorCode;
+            }
+        }
+        throw new IllegalArgumentException("APIErrorCode.getAPIErrorCodeByCode('code')");
     }
 }

@@ -8,10 +8,12 @@ import com.song.springbootdianping.common.APIErrorCode;
  * @Created by Jeremy
  */
 public class ParamNullException extends BaseExceprion{
+    public ParamNullException(){
+        super();
+    }
     public ParamNullException(APIErrorCode error){
         super(error);
     }
-
     public ParamNullException(APIErrorCode error, Object... params){
         super(error, params);
     }
