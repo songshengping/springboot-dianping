@@ -1,7 +1,9 @@
 package com.song.springbootdianping.service;
 
-import com.song.springbootdianping.dto.UserDTO;
-
-public interface UserService {
-    UserDTO findUserById(Integer id);
+/**
+ * @Description TODO
+ * @Date 2020/9/10 23:07
+ * @Created by Jeremy
+ */
+public class UserService {
 }
