@@ -5,13 +5,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @Author Jeremy
- * @Description 系统相关Controller
- * @Date 2020-09-07 14:08
- **/
+ * @Description 订单接口类
+ * @Date 2020/9/26 13:51
+ * @Created by Jeremy
+ */
 @RestController
-@RequestMapping(value = "/system")
-@Api(value = "系统相关模块")
-public class SystemController {
+@Api(value = "订单接口", tags = "订单相关的增删改查")
+@RequestMapping(value = "/order")
+public class OrderController {
 
 }

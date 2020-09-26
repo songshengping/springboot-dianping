@@ -18,18 +18,13 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  */
 @Configuration
 @EnableSwagger2
-@ConditionalOnProperty(
-        prefix = "swagger-ui",
-        name = {"enabled"},
-        havingValue = "true"
-)
 public class Swagger2Config {
     @Bean
     public Docket createRestApi(){
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiinfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.song.springbootdianping"))
+                .apis(RequestHandlerSelectors.basePackage("com.song.springbootdianping.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }
