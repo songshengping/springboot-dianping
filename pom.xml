@@ -4,7 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.song</groupId>
     <artifactId>springboot-dianping</artifactId>
+    <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
+    <modules>
+        <module>springboot-ioc-demo</module>
+    </modules>
     <name>springboot-dianping</name>
     <description>Demo project for Spring Boot</description>
 

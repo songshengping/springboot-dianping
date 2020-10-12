@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping(value = "/user")
-@Api(value = "用户接口", tags = "和用户有关的注册,登录,退出等操作")
+@Api(value = "用户接口", tags = "用户有关的注册,登录,退出等操作")
 public class UserController {
 
     @Autowired

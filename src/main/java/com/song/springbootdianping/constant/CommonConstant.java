@@ -6,5 +6,13 @@ package com.song.springbootdianping.constant;
  * @Created by Jeremy
  */
 public class CommonConstant {
+    /**
+     * 修改语言标识
+     */
     public static final String LOCALE = "lang";
+
+    /**
+     * 产品ID
+     */
+    public static String PURCHASE_PRODUCT_ID = "100100";
 }
