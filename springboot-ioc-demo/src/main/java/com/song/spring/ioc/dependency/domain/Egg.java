@@ -10,7 +10,18 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class Egg {
+
+    @Autowired
+    private PrototypeBean prototypeBean;
+
+    @Autowired
     private Chicken chicken;
+
+    public Egg(){
+
+    }
+
+    @Autowired
     Egg(Chicken chicken){
         this.chicken = chicken;
     }
