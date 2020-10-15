@@ -18,6 +18,5 @@ public class PrototypeBean {
     public PrototypeBean(){
         System.out.println("非单例Bean的初始化开始");
         System.out.println("非单例Bean的初始化结束");
-
     }
 }

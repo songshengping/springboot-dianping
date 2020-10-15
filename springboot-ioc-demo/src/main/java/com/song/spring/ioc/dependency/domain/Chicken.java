@@ -15,14 +15,6 @@ public class Chicken {
 
     public Chicken(){
     }
-
-//    @Autowired
-//    public void setInjectEgg(Egg egg){
-//        System.out.println("Setter方法注入时机开始==========================");
-//        this.egg = egg;
-//        System.out.println("Setter方法注入时机结束==========================");
-//    }
-
     @Autowired
     public Chicken(Egg egg){
         this.egg = egg;
