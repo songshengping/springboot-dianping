@@ -1,7 +1,6 @@
 package com.song.springboot.token.utils;
 
 import lombok.Getter;
-import lombok.Setter;
 
 /**
  * @Author Jeremy

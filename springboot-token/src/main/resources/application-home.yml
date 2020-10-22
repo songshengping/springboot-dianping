@@ -1,11 +1,4 @@
-#服务器相关配置
-server:
-  port: 8888
-  servlet:
-    context-path: /SBI
-
-#Redis配置
 spring:
-  redis:
-    host: 172.16.6.168
-    port: 6379
+  datasource:
+    url: jdbc:mysql://140.143.18.246:3306/springboot_dp?characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+    password: Song_jiang_0702

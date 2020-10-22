@@ -6,9 +6,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://172.16.6.168:3306/springboot_dp?characterEncoding=utf8&useSSL=false&serverTimezone=UTC
     username: root
-    password: Song_jiang_0702
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     #使用Druid数据库连接池
@@ -45,6 +43,12 @@ spring:
         login-username: admin
         # 登录密码
         login-password: 123456
+
+    #引入yml
+  profiles:
+    include: tomcat, echarts
+    active: company
+
   thymeleaf:
     cache: false                    #是否开启缓存,开发环境建议关闭
     encoding: UTF-8                 #thymeleaf编码格式

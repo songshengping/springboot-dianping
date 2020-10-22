@@ -3,7 +3,6 @@ package com.song.springboot.token.controller;
 import com.song.springboot.token.utils.APIResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
@@ -17,6 +16,6 @@ public class LoginController {
     @GetMapping(value = "/login")
     public APIResponse<String> login(@RequestParam(value = "username") String username,
                                      @RequestParam(value = "password") String password){
-
+        return null;
     }
 }
