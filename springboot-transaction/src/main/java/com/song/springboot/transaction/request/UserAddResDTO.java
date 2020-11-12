@@ -6,4 +6,16 @@ package com.song.springboot.transaction.request;
  * @Date 2020-11-12 18:28
  **/
 public class UserAddResDTO {
+
+    private String username;
+
+    private String password;
+
+    private String phone;
+
+    private String email;
+
+    private Integer roleId;
+
+    private Byte enabled;
 }
