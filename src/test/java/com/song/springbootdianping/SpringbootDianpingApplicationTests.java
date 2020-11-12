@@ -1,6 +1,10 @@
 package com.song.springbootdianping;
 
+import com.song.springbootdianping.mapper.UserMapper;
+import com.song.springbootdianping.model.User;
+import com.song.springbootdianping.request.UserRegistRequest;
 import com.song.springbootdianping.service.OrderService;
+import com.song.springbootdianping.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +19,9 @@ public class SpringbootDianpingApplicationTests {
 
     @Autowired
     private OrderService orderService;
+
+    @Autowired
+    private UserMapper userMapper;
 
     /**
      * 并发数
@@ -44,6 +51,21 @@ public class SpringbootDianpingApplicationTests {
         latch.await();
         executorService.shutdown();
         System.out.println("############并发模拟完毕#################");
+    }
+
+    @Test
+    public void genUser(){
+        User user = null;
+        for (int i = 100; i < 1000000;i++) {
+            user = new User();
+            user.setPhone(String.valueOf(i));
+            user.setGender(String.valueOf(i));
+            user.setNickname(String.valueOf(i));
+            user.setPassword(String.valueOf(i));
+            user.setUsername(String.valueOf(i));
+            userMapper.insert(user);
+        }
+
     }
 
 }

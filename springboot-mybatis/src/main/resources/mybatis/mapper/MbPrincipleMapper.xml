@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.song.springboot.mybatis.mapper.MbPrincipleMapper">
+  <resultMap id="BaseResultMap" type="com.song.springboot.mybatis.model.MbPrinciple">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="principle" jdbcType="VARCHAR" property="principle" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, principle
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from mb_principle
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from mb_principle
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.song.springboot.mybatis.model.MbPrinciple" useGeneratedKeys="true" keyProperty="id">
+    insert into mb_principle (name, principle
+      )
+    values (#{name,jdbcType=VARCHAR}, #{principle,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.song.springboot.mybatis.model.MbPrinciple">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
+      useGeneratedKeys
+    </selectKey>
+    insert into mb_principle
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      id,
+      <if test="name != null">
+        name,
+      </if>
+      <if test="principle != null">
+        principle,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{id,jdbcType=BIGINT},
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="principle != null">
+        #{principle,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.song.springboot.mybatis.model.MbPrinciple">
+    update mb_principle
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="principle != null">
+        principle = #{principle,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.song.springboot.mybatis.model.MbPrinciple">
+    update mb_principle
+    set name = #{name,jdbcType=VARCHAR},
+      principle = #{principle,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

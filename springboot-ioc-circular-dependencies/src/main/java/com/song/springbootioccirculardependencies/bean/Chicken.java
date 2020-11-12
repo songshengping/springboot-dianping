@@ -13,16 +13,15 @@ import org.springframework.stereotype.Component;
  **/
 @Component
 public class Chicken {
+    @Autowired
     private Egg egg;
-
     public Chicken(){
 
     }
-    @Autowired
+
     public void setInjectEgg(Egg egg){
         this.egg = egg;
     }
-
     public Chicken(Egg egg){
         this.egg = egg;
     }

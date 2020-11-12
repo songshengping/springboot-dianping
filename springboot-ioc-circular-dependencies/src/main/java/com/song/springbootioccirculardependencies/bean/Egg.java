@@ -1,6 +1,7 @@
 package com.song.springbootioccirculardependencies.bean;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,17 +13,14 @@ import org.springframework.stereotype.Component;
  * @Date 2020-10-14 19:33
  **/
 @Component
+@Scope(value = "prototype")
 public class Egg {
+    @Autowired
     private Chicken chicken;
 
     public Egg(){
 
     }
-    @Autowired
-    public Egg(Chicken chicken) {
-        this.chicken = chicken;
-    }
-
 
     public void setInjectChicken(Chicken chicken) {
         this.chicken = chicken;
