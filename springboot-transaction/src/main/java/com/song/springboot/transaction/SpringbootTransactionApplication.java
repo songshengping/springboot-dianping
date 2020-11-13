@@ -1,5 +1,6 @@
 package com.song.springboot.transaction;
 
+import com.song.springboot.transaction.service.UserService;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,7 +14,7 @@ public class SpringbootTransactionApplication {
 
 	public static void main(String[] args) {
 		ConfigurableApplicationContext applicationContext = SpringApplication.run(SpringbootTransactionApplication.class, args);
-		applicationContext.getBeanFactory();
+		UserService user = applicationContext.getBean(UserService.class);
 		System.out.println("args = " + Arrays.deepToString(args));
 	}
 
