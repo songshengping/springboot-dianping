@@ -1,0 +1,13 @@
+server:
+  port: 8088
+  servlet:
+    context-path: /JS
+
+mybatis:
+  mapper-locations: classpath*:mybatis/mapper/*.xml
+spring:
+  datasource:
+    url: jdbc:mysql://140.143.18.246:23337/springboot-dp
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: jeremy_song

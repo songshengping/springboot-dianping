@@ -13,6 +13,7 @@
         <module>springboot-token</module>
         <module>springboot-transaction</module>
         <module>springboot-ioc-circular-dependencies</module>
+        <module>springboot-shiro</module>
     </modules>
     <name>springboot-dianping</name>
     <description>Demo project for Spring Boot</description>
