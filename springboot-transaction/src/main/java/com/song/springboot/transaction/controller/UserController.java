@@ -17,14 +17,12 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date 2020-11-12 18:05
  **/
 @RestController
-@RequestMapping(value = "/user")
 @Api(value = "用户操作接口", tags = {"用户操作接口"})
 public class UserController {
-
     @Autowired
     private UserService userService;
 
-    @PostMapping()
+    @PostMapping(value = "/user")
     @ApiOperation(value = "注册用户", notes = "注册用户")
     public APIResponse<Boolean> registerUser(@RequestBody UserAddResDTO userAdd){
         return new APIResponse<>(userService.registerUser(userAdd));
