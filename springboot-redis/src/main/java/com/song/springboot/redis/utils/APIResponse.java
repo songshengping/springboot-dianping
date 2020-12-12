@@ -1,34 +1,28 @@
 package com.song.springboot.redis.utils;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
- * @Author Jeremy
- * @Description 后端返回通用对象
- * @Date 2020-12-09 12:50
- **/
+ * @Description 同意异常返回类
+ * @Date 2020/11/16 23:07
+ * @Created by Jeremy
+ */
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class APIResponse<T> {
-    private String message;
+    private String errorMessage;
     private Integer code;
     private Boolean success;
     private T data;
-    public APIResponse(){
-        this.success = true;
-        this.message = "";
-        this.code = 0;
-    }
-    public APIResponse(APIErrorCode errorCode){
-        this.success = false;
-        this.code = errorCode.getCode();
-        this.message = errorCode.getMessage();
-    }
 
     public APIResponse(T data){
-        this();
         this.data = data;
+        this.success = true;
+        this.code = 0;
     }
 }
